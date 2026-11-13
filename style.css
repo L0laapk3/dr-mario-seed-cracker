@@ -16,6 +16,9 @@
 
 body {
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background: var(--bg);
   color: var(--text);
   font-family: system-ui, sans-serif;
@@ -31,8 +34,6 @@ header {
 
 h1 { margin: 0; font-size: 22px; letter-spacing: 0.5px; }
 h2 { margin: 24px 0 10px; font-size: 14px; text-transform: uppercase; color: var(--muted); letter-spacing: 1px; }
-.manual h2 { margin-top: 0; }
-
 .header-right { display: flex; align-items: center; gap: 24px; }
 .source { color: var(--muted); font-size: 14px; }
 .source:hover { color: var(--accent); }
@@ -50,20 +51,24 @@ h2 { margin: 24px 0 10px; font-size: 14px; text-transform: uppercase; color: var
 }
 
 main {
+  flex: 1;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 24px;
   padding: 24px;
-  align-items: flex-start;
 }
+
+.top { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+.input-panel { flex: 1 1 300px; min-width: 0; }
+.numpad-panel { flex: 0 0 auto; max-width: 380px; }
 
 .panel {
   background: var(--panel);
   border-radius: 10px;
   padding: 20px 24px;
 }
-main > .panel:first-child { flex: 1 1 520px; min-width: 0; }
-.manual { flex: 0 0 auto; max-width: 380px; }
+.panel h2 { margin-top: 0; }
+.queue-panel { margin-top: auto; }
 
 .status-row { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
 .status { font-size: 20px; font-weight: 600; }
@@ -103,16 +108,30 @@ main > .panel:first-child { flex: 1 1 520px; min-width: 0; }
 }
 .slot .label { font-size: 11px; color: var(--muted); }
 
+.deck {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 2px;
+  width: calc(4 * 76px + 3 * 8px);
+}
+.deck .cell {
+  display: flex;
+  justify-content: center;
+  padding: 2px 0;
+  border: 2px solid transparent;
+  border-radius: 6px;
+}
+.deck .cell svg { display: block; }
+.deck .cell.current { border-color: var(--accent); }
+
 .deck-stats {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   margin-top: 12px;
-  font-size: 14px;
+  font-size: 13px;
 }
-.deck-stats:empty { display: none; }
-.deck-stats .title { color: var(--muted); }
 .deck-stats .stat { display: flex; align-items: center; gap: 6px; text-transform: capitalize; }
 .deck-stats .swatch { width: 12px; height: 12px; border-radius: 50%; }
 .deck-stats .pct { color: var(--muted); }

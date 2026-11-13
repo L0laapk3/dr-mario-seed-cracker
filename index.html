@@ -18,26 +18,36 @@
   </header>
 
   <main>
-    <section class="panel">
+    <div class="top">
+      <section class="panel input-panel">
+        <h2>Input</h2>
+        <div id="history" class="history"></div>
+      </section>
+
+      <section id="deck-view" class="panel" hidden>
+        <h2>Deck</h2>
+        <div id="deck" class="deck"></div>
+        <div id="deck-stats" class="deck-stats"></div>
+      </section>
+
+      <section class="panel numpad-panel">
+        <h2>Numpad</h2>
+        <div id="numpad" class="numpad"></div>
+        <p class="hint">
+          Enter pills in the order they are dealt, starting with the first pill of the level.
+          Once cracked, any of 1&ndash;9 or 0 advances the queue by one pill.
+          If you start mid-level or miss some pills, press Enter first.
+          Press &minus; at every new level.
+        </p>
+      </section>
+    </div>
+
+    <section class="panel queue-panel">
       <div class="status-row">
         <div id="status" class="status"></div>
         <div id="detail" class="detail"></div>
       </div>
       <div id="queue" class="queue"></div>
-      <div id="deck-stats" class="deck-stats"></div>
-      <h2>Input</h2>
-      <div id="history" class="history"></div>
-    </section>
-
-    <section class="panel manual">
-      <h2>Numpad</h2>
-      <div id="numpad" class="numpad"></div>
-      <p class="hint">
-        Enter pills in the order they are dealt, starting with the first pill of the level.
-        Once cracked, any of 1&ndash;9 or 0 advances the queue by one pill.
-        If you start mid-level or miss some pills, press Enter first.
-        Press &minus; at every new level.
-      </p>
     </section>
   </main>
 
