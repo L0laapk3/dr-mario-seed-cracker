@@ -33,6 +33,10 @@ h1 { margin: 0; font-size: 22px; letter-spacing: 0.5px; }
 h2 { margin: 24px 0 10px; font-size: 14px; text-transform: uppercase; color: var(--muted); letter-spacing: 1px; }
 .manual h2 { margin-top: 0; }
 
+.header-right { display: flex; align-items: center; gap: 24px; }
+.source { color: var(--muted); font-size: 14px; }
+.source:hover { color: var(--accent); }
+
 .setting { color: var(--muted); font-size: 14px; }
 .setting input {
   width: 64px;
