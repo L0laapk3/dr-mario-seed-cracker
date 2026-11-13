@@ -166,13 +166,20 @@
     if (tokens.length === 0) {
       history.innerHTML = `<span class="empty">nothing yet</span>`;
     }
-    for (const tok of tokens) {
+    for (let i = 0; i < tokens.length; i++) {
+      const tok = tokens[i];
       if (tok.t === "pill") {
         history.insertAdjacentHTML("beforeend", pillSvg(tok.v, 36));
       } else {
+        let text = "* wildcard";
+        if (tok.t === "adv") {
+          let n = 1;
+          while (tokens[i + 1]?.t === "adv") { n++; i++; }
+          text = `+${n}`;
+        }
         const el = document.createElement("span");
         el.className = "token";
-        el.textContent = tok.t === "wild" ? "* wildcard" : "+1";
+        el.textContent = text;
         history.appendChild(el);
       }
     }
