@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dr. Mario Seed Cracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Dr. Mario seed cracker</h1>
+    <label class="setting">Queue length
+      <input id="queue-length" type="number" min="1" max="128" value="10">
+    </label>
+  </header>
+
+  <main>
+    <section class="panel">
+      <div class="status-row">
+        <div id="status" class="status"></div>
+        <div id="detail" class="detail"></div>
+      </div>
+      <div id="queue" class="queue"></div>
+      <h2>Input</h2>
+      <div id="history" class="history"></div>
+    </section>
+
+    <section class="panel manual">
+      <h2>Numpad</h2>
+      <div id="numpad" class="numpad"></div>
+      <p class="hint">
+        Enter pills in the order they are dealt, starting with the first pill of the level.
+        Once cracked, any of 1&ndash;9 or 0 advances the queue by one pill.
+        If you start mid-level or miss some pills, press Enter first.
+        Press &minus; at every new level.
+      </p>
+    </section>
+  </main>
+
+  <script src="engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
