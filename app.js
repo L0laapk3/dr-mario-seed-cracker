@@ -161,6 +161,22 @@
       });
     }
 
+    const deckStats = $("deck-stats");
+    deckStats.innerHTML = "";
+    if (cracked && seeds === 1) {
+      const base = matches[0] & ~(D.RESERVE - 1);
+      const halves = [0, 0, 0];
+      for (let i = 0; i < D.RESERVE; i++) {
+        const p = D.reserves[base + i];
+        halves[D.LEFT[p]]++;
+        halves[D.RIGHT[p]]++;
+      }
+      deckStats.innerHTML = `<span class="title">Halves in deck</span>` + halves.map((n, c) =>
+        `<span class="stat"><span class="swatch" style="background:${COLOR_VARS[c]}"></span>` +
+        `${D.COLORS[c]} ${n} <span class="pct">(${(n / (2 * D.RESERVE) * 100).toFixed(1)}%)</span></span>`
+      ).join("");
+    }
+
     const history = $("history");
     history.innerHTML = "";
     if (tokens.length === 0) {

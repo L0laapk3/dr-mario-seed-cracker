@@ -103,6 +103,20 @@ main > .panel:first-child { flex: 1 1 520px; min-width: 0; }
 }
 .slot .label { font-size: 11px; color: var(--muted); }
 
+.deck-stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 12px;
+  font-size: 14px;
+}
+.deck-stats:empty { display: none; }
+.deck-stats .title { color: var(--muted); }
+.deck-stats .stat { display: flex; align-items: center; gap: 6px; text-transform: capitalize; }
+.deck-stats .swatch { width: 12px; height: 12px; border-radius: 50%; }
+.deck-stats .pct { color: var(--muted); }
+
 .history {
   display: flex;
   flex-wrap: wrap;
